@@ -37,17 +37,38 @@ export const Fonts = Platform.select({
     rounded: 'ui-rounded',
     /** iOS `UIFontDescriptorSystemDesignMonospaced` */
     mono: 'ui-monospace',
+    /** Custom Google Font: Karla */
+    karlaRegular: 'KarlaRegular',
+    karlaSemiBold: 'KarlaSemiBold',
+    karlaBold: 'KarlaBold',
+    /** Custom Google Font: Sniglet */
+    snigletRegular: 'SnigletRegular',
+    snigletBold: 'SnigletBold',
   },
   default: {
     sans: 'normal',
     serif: 'serif',
     rounded: 'normal',
     mono: 'monospace',
+    /** Custom Google Font: Karla */
+    karlaRegular: 'KarlaRegular',
+    karlaSemiBold: 'KarlaSemiBold',
+    karlaBold: 'KarlaBold',
+    /** Custom Google Font: Sniglet */
+    snigletRegular: 'SnigletRegular',
+    snigletBold: 'SnigletBold',
   },
   web: {
     sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
     serif: "Georgia, 'Times New Roman', serif",
     rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
     mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    /** Custom Google Font: Karla */
+    karlaRegular: 'KarlaRegular',
+    karlaSemiBold: 'KarlaSemiBold',
+    karlaBold: 'KarlaBold',
+    /** Custom Google Font: Sniglet */
+    snigletRegular: 'SnigletRegular',
+    snigletBold: 'SnigletBold',
   },
 });
