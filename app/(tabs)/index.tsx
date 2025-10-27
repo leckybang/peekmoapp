@@ -1,7 +1,7 @@
 
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { Dimensions, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Fonts } from '@/constants/theme';
 
 export default function HomeScreen() {
@@ -76,7 +76,11 @@ export default function HomeScreen() {
       <View style={[styles.container, { backgroundColor: '#E89EE0' }]}>
         <StatusBar />
         <ScrollView contentContainerStyle={styles.introContainer}>
-          <Text style={styles.introTitle}>Peekmo</Text>
+          <Image
+            source={require('@/assets/images/Peekmo Logo.png')}
+            style={styles.logo}
+            resizeMode="contain"
+          />
           <Text style={styles.subtitle}>Play Peekaboo with Emojis</Text>
 
           <View style={styles.tooltipCard}>
@@ -234,6 +238,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 40,
+  },
+  logo: {
+    width: 250,
+    height: 100,
+    marginBottom: 12,
   },
   introTitle: {
     fontSize: 48,
