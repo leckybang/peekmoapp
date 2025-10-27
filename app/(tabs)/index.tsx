@@ -2,6 +2,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Fonts } from '@/constants/theme';
 
 export default function HomeScreen() {
   
@@ -236,13 +237,13 @@ const styles = StyleSheet.create({
   },
   introTitle: {
     fontSize: 48,
-   
+    fontFamily: Fonts.snigletBold,
     marginBottom: 12,
     color: '#1e40af',
   },
   subtitle: {
     fontSize: 18,
-    fontFamily: 'KarlaBold',
+    fontFamily: Fonts.karlaBold,
     marginBottom: 32,
     color: '#1f2937',
   },
@@ -261,7 +262,7 @@ const styles = StyleSheet.create({
   },
   tooltipLabel: {
     fontSize: 12,
-    
+    fontFamily: Fonts.karlaBold,
     color: '#1e40af',
     letterSpacing: 1,
     marginBottom: 16,
@@ -272,13 +273,13 @@ const styles = StyleSheet.create({
   },
   tooltipTitle: {
     fontSize: 20,
-    
+    fontFamily: Fonts.karlaBold,
     color: '#1e40af',
     marginBottom: 16,
   },
   tooltipDescription: {
     fontSize: 16,
-    
+    fontFamily: Fonts.karlaRegular,
     color: '#1e40af',
     lineHeight: 24,
     textAlign: 'center',
@@ -325,12 +326,12 @@ const styles = StyleSheet.create({
   },
   skipButtonText: {
     fontSize: 16,
-    
+    fontFamily: Fonts.karlaBold,
     color: '#1e40af',
   },
   nextButtonText: {
     fontSize: 16,
-  
+    fontFamily: Fonts.karlaBold,
     color: '#ffffff',
   },
   buttonPressed: {
@@ -338,7 +339,7 @@ const styles = StyleSheet.create({
   },
   legalText: {
     fontSize: 12,
-
+    fontFamily: Fonts.karlaRegular,
     color: '#374151',
     textAlign: 'center',
     lineHeight: 18,
@@ -370,7 +371,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     fontSize: 10,
-    
+    fontFamily: Fonts.karlaRegular,
     color: '#666',
     textAlign: 'center',
     marginBottom: 8,
@@ -378,7 +379,7 @@ const styles = StyleSheet.create({
   },
   privacyLink: {
     fontSize: 10,
-
+    fontFamily: Fonts.karlaRegular,
     color: '#1e40af',
     textDecorationLine: 'underline',
   },
