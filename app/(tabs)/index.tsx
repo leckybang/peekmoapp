@@ -1,4 +1,3 @@
-
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
@@ -30,7 +29,7 @@ export default function HomeScreen() {
     { title: "Lock it Down", emoji: "🔒", description: "Set your phone to kid mode! Go to Guided Access in Settings > Accessibility." }
   ];
 
-  const backgroundColors = ['#FFB6E1', '#ADD8E6', '#90EE90', '#FFFFE0'];
+  const backgroundColors = ['#FFB6E1', '#ADD8E6', '#90EE90', 'rgba(255, 255, 224, 1)'];
   const screenWidth = Dimensions.get('window').width;
   const itemSize = (screenWidth - 40) / 2;
 
@@ -75,7 +74,7 @@ export default function HomeScreen() {
       <View style={[styles.container, { backgroundColor: '#E89EE0' }]}>
         <StatusBar />
         <ScrollView contentContainerStyle={styles.introContainer}>
-          <Text style={styles.introTitle}>Peekmo</Text>
+          <Text style={styles.introTitle}>👀 Peekmo</Text>
           <Text style={styles.subtitle}>Play Peekaboo with Emojis</Text>
 
           <View style={styles.tooltipCard}>
@@ -112,11 +111,14 @@ export default function HomeScreen() {
             </Pressable>
           </View>
 
-          <Text style={styles.legalText}>
-            For entertainment only. Parental supervision required.{'\n'}
-            Ages 2+. No personal data collected.{'\n'}
-            © 2025 Peekmo™. All rights reserved.
-          </Text>
+          <View style={styles.footerContainer}>
+        <Text style={styles.footer}>
+          For entertainment only. Ages 2+. © 2025 Peekmo™
+        </Text>
+        <Pressable onPress={() => Linking.openURL('https://www.ambiobranding.com/peekmo-privacy-policy')}>
+          <Text style={styles.privacyLink}>Privacy Policy</Text>
+        </Pressable>
+      </View>
         </ScrollView>
       </View>
     );
@@ -214,7 +216,7 @@ export default function HomeScreen() {
         <Text style={styles.footer}>
           For entertainment only. Ages 2+. © 2025 Peekmo™
         </Text>
-        <Pressable onPress={() => Linking.openURL('https://yourprivacypolicyurl.com')}>
+        <Pressable onPress={() => Linking.openURL('https://www.ambiobranding.com/peekmo-privacy-policy')}>
           <Text style={styles.privacyLink}>Privacy Policy</Text>
         </Pressable>
       </View>
@@ -242,7 +244,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 18,
-    fontFamily: 'KarlaBold',
+
     marginBottom: 32,
     color: '#1f2937',
   },
@@ -357,7 +359,7 @@ const styles = StyleSheet.create({
   },
   largeContainer: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: 'rgba(255, 255, 224, 1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
