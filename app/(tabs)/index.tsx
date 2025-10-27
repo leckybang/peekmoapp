@@ -77,7 +77,7 @@ export default function HomeScreen() {
         <StatusBar />
         <ScrollView contentContainerStyle={styles.introContainer}>
           <Image
-            source={require('@/assets/images/Peekmo Logo.png')}
+            source={require('@/assets/images/peekmo-logo.png')}
             style={styles.logo}
             resizeMode="contain"
           />
