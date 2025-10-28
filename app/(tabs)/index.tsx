@@ -1,7 +1,8 @@
 
 import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { Dimensions, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, Dimensions, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Fonts } from '@/constants/theme';
 
 export default function HomeScreen() {
@@ -13,6 +14,14 @@ export default function HomeScreen() {
   const [showLarge, setShowLarge] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [currentTooltip, setCurrentTooltip] = useState(0);
+
+  // ANIMATED VALUES FOR BOUNCE
+  const scaleAnims = useRef([
+    new Animated.Value(1),
+    new Animated.Value(1),
+    new Animated.Value(1),
+    new Animated.Value(1),
+  ]).current;
 
   // CONSTANTS - AFTER HOOKS
   const emojiCategories = {
@@ -31,9 +40,17 @@ export default function HomeScreen() {
     { title: "Lock it Down", emoji: "🔒", description: "Set your phone to kid mode! Go to Guided Access in Settings > Accessibility." }
   ];
 
-  const backgroundColors = ['#FFB6E1', '#ADD8E6', '#90EE90', '#FFFFE0'];
+  // VIBRANT GRADIENT COLORS
+  const gradientColors = [
+    ['#FF6B9D', '#FEC5E5'], // Pink gradient
+    ['#4FACFE', '#00F2FE'], // Blue gradient
+    ['#43E97B', '#38F9D7'], // Green gradient
+    ['#FA709A', '#FEE140'], // Yellow-pink gradient
+  ];
+
   const screenWidth = Dimensions.get('window').width;
-  const itemSize = (screenWidth - 40) / 2;
+  const screenHeight = Dimensions.get('window').height;
+  const itemSize = (screenWidth - 16) / 2; // Reduced margin for larger tiles
 
   // FUNCTIONS
   const generateRandomEmojis = () => {
@@ -41,7 +58,21 @@ export default function HomeScreen() {
     return shuffled.slice(0, 4);
   };
 
-  const handleEmojiClick = (emoji: string) => {
+  const handleEmojiClick = (emoji: string, index: number) => {
+    // Bounce animation
+    Animated.sequence([
+      Animated.timing(scaleAnims[index], {
+        toValue: 1.2,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnims[index], {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
     setSelectedEmoji(emoji);
     setShowLarge(true);
     setTimeout(() => {
@@ -143,74 +174,58 @@ export default function HomeScreen() {
 
       <View style={styles.gridWrapper}>
         <View style={styles.row}>
-          <Pressable
-            onPress={() => handleEmojiClick(currentEmojis[0])}
-            style={{
-              width: itemSize,
-              height: itemSize,
-              backgroundColor: backgroundColors[0],
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 16,
-              borderWidth: 4,
-              borderColor: 'white',
-              margin: 8,
-            }}
-          >
-            <Text style={styles.emoji}>{currentEmojis[0]}</Text>
+          <Pressable onPress={() => handleEmojiClick(currentEmojis[0], 0)}>
+            <Animated.View style={{ transform: [{ scale: scaleAnims[0] }] }}>
+              <LinearGradient
+                colors={gradientColors[0]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.emojiTile}
+              >
+                <Text style={styles.emoji}>{currentEmojis[0]}</Text>
+              </LinearGradient>
+            </Animated.View>
           </Pressable>
 
-          <Pressable
-            onPress={() => handleEmojiClick(currentEmojis[1])}
-            style={{
-              width: itemSize,
-              height: itemSize,
-              backgroundColor: backgroundColors[1],
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 16,
-              borderWidth: 4,
-              borderColor: 'white',
-              margin: 8,
-            }}
-          >
-            <Text style={styles.emoji}>{currentEmojis[1]}</Text>
+          <Pressable onPress={() => handleEmojiClick(currentEmojis[1], 1)}>
+            <Animated.View style={{ transform: [{ scale: scaleAnims[1] }] }}>
+              <LinearGradient
+                colors={gradientColors[1]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.emojiTile}
+              >
+                <Text style={styles.emoji}>{currentEmojis[1]}</Text>
+              </LinearGradient>
+            </Animated.View>
           </Pressable>
         </View>
 
         <View style={styles.row}>
-          <Pressable
-            onPress={() => handleEmojiClick(currentEmojis[2])}
-            style={{
-              width: itemSize,
-              height: itemSize,
-              backgroundColor: backgroundColors[2],
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 16,
-              borderWidth: 4,
-              borderColor: 'white',
-              margin: 8,
-            }}
-          >
-            <Text style={styles.emoji}>{currentEmojis[2]}</Text>
+          <Pressable onPress={() => handleEmojiClick(currentEmojis[2], 2)}>
+            <Animated.View style={{ transform: [{ scale: scaleAnims[2] }] }}>
+              <LinearGradient
+                colors={gradientColors[2]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.emojiTile}
+              >
+                <Text style={styles.emoji}>{currentEmojis[2]}</Text>
+              </LinearGradient>
+            </Animated.View>
           </Pressable>
 
-          <Pressable
-            onPress={() => handleEmojiClick(currentEmojis[3])}
-            style={{
-              width: itemSize,
-              height: itemSize,
-              backgroundColor: backgroundColors[3],
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 16,
-              borderWidth: 4,
-              borderColor: 'white',
-              margin: 8,
-            }}
-          >
-            <Text style={styles.emoji}>{currentEmojis[3]}</Text>
+          <Pressable onPress={() => handleEmojiClick(currentEmojis[3], 3)}>
+            <Animated.View style={{ transform: [{ scale: scaleAnims[3] }] }}>
+              <LinearGradient
+                colors={gradientColors[3]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.emojiTile}
+              >
+                <Text style={styles.emoji}>{currentEmojis[3]}</Text>
+              </LinearGradient>
+            </Animated.View>
           </Pressable>
         </View>
       </View>
@@ -362,8 +377,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  emojiTile: {
+    width: (Dimensions.get('window').width - 16) / 2,
+    height: (Dimensions.get('window').width - 16) / 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    margin: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
   emoji: {
-    fontSize: 64,
+    fontSize: 80,
   },
   largeContainer: {
     flex: 1,
