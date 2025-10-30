@@ -266,15 +266,16 @@ const styles = StyleSheet.create({
   },
   introContainer: {
     flexGrow: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 40,
+    paddingTop: 80,
+    paddingBottom: 40,
   },
   logo: {
     width: 250,
     height: 100,
-    marginBottom: 12,
+    marginBottom: 8,
   },
   introTitle: {
     fontSize: 48,
@@ -285,7 +286,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 18,
     fontFamily: Fonts.karlaBold,
-    marginBottom: 32,
+    marginBottom: 48,
     color: '#1f2937',
   },
   tooltipCard: {
