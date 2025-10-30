@@ -59,29 +59,31 @@ export default function HomeScreen() {
   };
 
   const handleEmojiClick = (emoji: string, index: number) => {
-    // Bounce animation
+    // Bounce animation - make it more pronounced and visible
     Animated.sequence([
       Animated.timing(scaleAnims[index], {
-        toValue: 1.2,
-        duration: 100,
+        toValue: 1.3,
+        duration: 150,
         useNativeDriver: true,
       }),
-      Animated.timing(scaleAnims[index], {
+      Animated.spring(scaleAnims[index], {
         toValue: 1,
-        duration: 100,
+        friction: 3,
+        tension: 40,
         useNativeDriver: true,
       }),
-    ]).start();
-
-    setSelectedEmoji(emoji);
-    setShowLarge(true);
-    setTimeout(() => {
-      setShowLarge(false);
-      setSelectedEmoji(null);
+    ]).start(() => {
+      // Only show large emoji AFTER bounce completes
+      setSelectedEmoji(emoji);
+      setShowLarge(true);
       setTimeout(() => {
-        setCurrentEmojis(generateRandomEmojis());
-      }, 100);
-    }, 1500);
+        setShowLarge(false);
+        setSelectedEmoji(null);
+        setTimeout(() => {
+          setCurrentEmojis(generateRandomEmojis());
+        }, 100);
+      }, 1500);
+    });
   };
 
   const nextTooltip = () => {
@@ -378,12 +380,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   emojiTile: {
-    width: (Dimensions.get('window').width - 16) / 2,
-    height: (Dimensions.get('window').width - 16) / 2,
+    width: (Dimensions.get('window').width - 8) / 2,
+    height: (Dimensions.get('window').width - 8) / 2,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
-    margin: 4,
+    margin: 2,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
