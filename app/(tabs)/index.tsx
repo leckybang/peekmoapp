@@ -150,6 +150,8 @@ export default function HomeScreen() {
             </Pressable>
           </View>
 
+          <View style={styles.introSpacer} />
+
           <Text style={styles.legalText}>
             For entertainment only. Parental supervision required.{'\n'}
             Ages 2+. No personal data collected.{'\n'}
@@ -163,9 +165,14 @@ export default function HomeScreen() {
   // RENDER - LARGE EMOJI
   if (showLarge && selectedEmoji) {
     return (
-      <View style={styles.largeContainer}>
+      <LinearGradient
+        colors={['#FF6B9D', '#C471F5', '#12C2E9']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.largeContainer}
+      >
         <Text style={styles.largeEmoji}>{selectedEmoji}</Text>
-      </View>
+      </LinearGradient>
     );
   }
 
@@ -173,6 +180,14 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <StatusBar />
+
+      <View style={styles.gameHeader}>
+        <Image
+          source={require('@/assets/images/peekmo-logo.png')}
+          style={styles.gameLogo}
+          resizeMode="contain"
+        />
+      </View>
 
       <View style={styles.gridWrapper}>
         <View style={styles.row}>
@@ -363,12 +378,27 @@ const styles = StyleSheet.create({
   buttonPressed: {
     opacity: 0.8,
   },
+  introSpacer: {
+    flex: 1,
+    minHeight: 40,
+  },
   legalText: {
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: Fonts.karlaRegular,
     color: '#374151',
     textAlign: 'center',
-    lineHeight: 18,
+    lineHeight: 16,
+    opacity: 0.6,
+    marginTop: 20,
+  },
+  gameHeader: {
+    paddingTop: 60,
+    paddingBottom: 20,
+    alignItems: 'center',
+  },
+  gameLogo: {
+    width: 180,
+    height: 60,
   },
   gridWrapper: {
     flex: 1,
