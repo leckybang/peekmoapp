@@ -59,21 +59,20 @@ export default function HomeScreen() {
   };
 
   const handleEmojiClick = (emoji: string, index: number) => {
-    // Bounce animation - make it more pronounced and visible
+    // Quick, snappy bounce animation
     Animated.sequence([
       Animated.timing(scaleAnims[index], {
-        toValue: 1.3,
-        duration: 150,
+        toValue: 1.2,
+        duration: 80,
         useNativeDriver: true,
       }),
-      Animated.spring(scaleAnims[index], {
+      Animated.timing(scaleAnims[index], {
         toValue: 1,
-        friction: 3,
-        tension: 40,
+        duration: 80,
         useNativeDriver: true,
       }),
     ]).start(() => {
-      // Only show large emoji AFTER bounce completes
+      // Show large emoji AFTER quick bounce
       setSelectedEmoji(emoji);
       setShowLarge(true);
       setTimeout(() => {
@@ -288,7 +287,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 100,
-    marginBottom: 4,
+    marginBottom: 0,
   },
   introTitle: {
     fontSize: 48,
