@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 250,
     height: 100,
-    marginBottom: 8,
+    marginBottom: 4,
   },
   introTitle: {
     fontSize: 48,
@@ -393,8 +393,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   gameHeader: {
-    paddingTop: 60,
-    paddingBottom: 20,
+    paddingTop: 80,
+    paddingBottom: 40,
     alignItems: 'center',
   },
   gameLogo: {
