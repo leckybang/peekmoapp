@@ -106,7 +106,12 @@ export default function HomeScreen() {
   // RENDER - INTRO SCREEN
   if (showIntro) {
     return (
-      <View style={[styles.container, { backgroundColor: '#E89EE0' }]}>
+      <LinearGradient
+        colors={['#E89EE0', '#C471F5', '#9D5CDB']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 0, y: 1 }}
+        style={styles.container}
+      >
         <StatusBar />
         <ScrollView contentContainerStyle={styles.introContainer}>
           <Image
@@ -143,10 +148,16 @@ export default function HomeScreen() {
               <Text style={styles.skipButtonText}>SKIP</Text>
             </Pressable>
             <Pressable
-              style={({ pressed }) => [styles.button, styles.nextButton, pressed && styles.buttonPressed]}
               onPress={nextTooltip}
             >
-              <Text style={styles.nextButtonText}>NEXT</Text>
+              <LinearGradient
+                colors={['#4F46E5', '#7C3AED']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={[styles.button, styles.nextButton]}
+              >
+                <Text style={styles.nextButtonText}>NEXT</Text>
+              </LinearGradient>
             </Pressable>
           </View>
 
@@ -158,7 +169,7 @@ export default function HomeScreen() {
             © 2025 Peekmo™. All rights reserved.
           </Text>
         </ScrollView>
-      </View>
+      </LinearGradient>
     );
   }
 
@@ -366,7 +377,7 @@ const styles = StyleSheet.create({
     borderColor: '#1e40af',
   },
   nextButton: {
-    backgroundColor: '#1e40af',
+    // backgroundColor removed - using gradient
   },
   skipButtonText: {
     fontSize: 16,
