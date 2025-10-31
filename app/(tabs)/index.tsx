@@ -181,15 +181,16 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <StatusBar />
 
-      <View style={styles.gameHeader}>
-        <Image
-          source={require('@/assets/images/peekmo-logo.png')}
-          style={styles.gameLogo}
-          resizeMode="contain"
-        />
-      </View>
+      <View style={styles.gameScreen}>
+        <View style={styles.gameHeader}>
+          <Image
+            source={require('@/assets/images/peekmo-logo.png')}
+            style={styles.gameLogo}
+            resizeMode="contain"
+          />
+        </View>
 
-      <View style={styles.gridWrapper}>
+        <View style={styles.gridWrapper}>
         <View style={styles.row}>
           <Pressable onPress={() => handleEmojiClick(currentEmojis[0], 0)}>
             <Animated.View style={{ transform: [{ scale: scaleAnims[0] }] }}>
@@ -245,6 +246,7 @@ export default function HomeScreen() {
             </Animated.View>
           </Pressable>
         </View>
+      </View>
       </View>
 
       <View style={styles.footerContainer}>
@@ -392,9 +394,13 @@ const styles = StyleSheet.create({
     opacity: 0.6,
     marginTop: 20,
   },
+  gameScreen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   gameHeader: {
-    paddingTop: 80,
-    paddingBottom: 40,
+    paddingBottom: 30,
     alignItems: 'center',
   },
   gameLogo: {
@@ -402,8 +408,6 @@ const styles = StyleSheet.create({
     height: 60,
   },
   gridWrapper: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   row: {
