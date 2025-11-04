@@ -1,9 +1,9 @@
 
+import { Fonts } from '@/constants/theme';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, Image, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Fonts } from '@/constants/theme';
 
 export default function HomeScreen() {
   
@@ -25,19 +25,20 @@ export default function HomeScreen() {
 
   // CONSTANTS - AFTER HOOKS
   const emojiCategories = {
-    faces: ['😊', '😄', '😆', '🥰', '😍', '🤗', '😋', '😎', '🤪', '😴', '😂', '🤣', '😇', '🙂', '🥳', '🤩', '😘', '😚', '🤭'],
+    faces: ['😄', '🥰', '😍', '🤗', '😋', '😎', '🤪', '😴', '🤣', '😇', '🥳', '🤩', '😘', '🤭'],
     nature: ['🌞', '⭐', '🌙', '🌈', '🌸', '🌺', '🌻', '🌳', '🍄', '⛅', '🌟', '💫', '☀️', '🌿', '🌱', '🍀', '🌷', '🌼', '🦋', '🌊'],
     transportation: ['🚗', '🚕', '🚙', '🚌', '🚎', '🛻', '🚂', '✈️', '🚁', '🛳️', '🚲', '🛴', '🏍️', '🚜', '🚒', '🚑', '🚓', '🛥️', '🚤', '🛸'],
     food: ['🍎', '🍌', '🍓', '🍊', '🍇', '🥕', '🍞', '🥛', '🍪', '🧁', '🍒', '🍑', '🥭', '🍍', '🥥', '🍉', '🥖', '🧀', '🥚', '🍯'],
     animals: ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐸', '🐛', '🐯', '🦁', '🐨', '🐵', '🐔', '🐧', '🐦', '🐤', '🐢', '🦒', '🐘', '🐮', '🐷', '🐑', '🦆', '🐞', '🦋', '🐙', '🐬', '🐳']
+
   };
 
   const allEmojis = Object.values(emojiCategories).flat();
 
   const tooltips = [
-    { title: "Random Emojis Appear!", emoji: "☺️", description: "Invite your little one to tap away." },
-    { title: "Learn Concepts", emoji: "🔷", description: "Talk about basic words and ideas." },
-    { title: "Lock it Down", emoji: "🔒", description: "Set your phone to kid mode! Go to Guided Access in Settings > Accessibility." }
+    { title: "Random Smash Mode", emoji: "👋", description: "Let your little one smash away at random emoji." },
+    { title: "Learning Mode", emoji: "🔷", description: "Say a word out loud and ask them to find it." },
+    { title: "Lock it Down", emoji: "🔒", description: "To limit their phone use to just this app, go to Guided Access in Settings > Accessibility." }
   ];
 
   // VIBRANT GRADIENT COLORS
