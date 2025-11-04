@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "PeekmoApp",
-    "slug": "PeekmoApp",
+    "name": "Peekmo",
+    "slug": "peekmo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,9 +9,13 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ambiobranding.peekmo",
+      "buildNumber": "1"
     },
     "android": {
+      "package": "com.ambiobranding.peekmo",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
