@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { Dimensions, Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   
@@ -115,9 +115,6 @@ export default function HomeScreen() {
         <Text style={styles.footer}>
           For entertainment only. Ages 2+. © 2025 Peekmo™
         </Text>
-        <Pressable onPress={() => Linking.openURL('https://www.ambiobranding.com/peekmo-privacy-policy')}>
-          <Text style={styles.privacyLink}>Privacy Policy</Text>
-        </Pressable>
       </View>
         </ScrollView>
       </View>
@@ -216,9 +213,6 @@ export default function HomeScreen() {
         <Text style={styles.footer}>
           For entertainment only. Ages 2+. © 2025 Peekmo™
         </Text>
-        <Pressable onPress={() => Linking.openURL('https://www.ambiobranding.com/peekmo-privacy-policy')}>
-          <Text style={styles.privacyLink}>Privacy Policy</Text>
-        </Pressable>
       </View>
     </View>
   );
@@ -377,11 +371,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 8,
     opacity: 0.7,
-  },
-  privacyLink: {
-    fontSize: 10,
-
-    color: '#1e40af',
-    textDecorationLine: 'underline',
   },
 });
